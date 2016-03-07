@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('onlineTest')
-.controller('RegistrationCtrl', function ($rootScope, localStorageService, $location) {
+angular.module('onlineTestAngularApp')
+.controller('RegistrationCtrl', function ($rootScope) {
   var vm = this;
-  
 
-  
+
+
 });
