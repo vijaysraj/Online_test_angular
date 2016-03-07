@@ -31,6 +31,59 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
+     ngconstant: {
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config'
+      },
+      // Environment targets
+      development: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js',
+        },
+        constants: {
+          ENV: {
+            name: 'development',
+            api_path: 'http://localhost:3000/',
+          }
+        }
+      },
+      // st: {
+      //   options: {
+      //     dest: '<%= yeoman.dist %>/scripts/config.js',
+      //   },
+      //   constants: {
+      //     ENV: {
+      //       name: 'st',
+      //       api_path: 'http://st.api.meetings.qwinixtech.com/',
+      //     }
+      //   }
+      // },
+      // production: {
+      //   options: {
+      //     dest: '<%= yeoman.dist %>/scripts/config.js',
+      //   },
+      //   constants: {
+      //     ENV: {
+      //       name: 'production',
+      //       api_path: 'http://api.meetings.qwinixtech.com/',
+      //     }
+      //   }
+      // },
+      // test: {
+      //   options: {
+      //     dest: '<%= yeoman.dist %>/scripts/config.js',
+      //   },
+      //   constants: {
+      //     ENV: {
+      //       name: 'test',
+      //       api_path: 'http://st.api.meetings.qwinixtech.com/',
+      //     }
+      //   }
+      // },
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
