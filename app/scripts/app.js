@@ -26,10 +26,10 @@ angular
         controller: 'RegistrationCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/question', {
+        templateUrl: 'views/question.html',
+        controller: 'questionCtrl',
+        controllerAs: 'question'
       })
       .otherwise({
         redirectTo: '/'
