@@ -37,10 +37,11 @@
 	display: inline-block;
 	position: relative;
 	font-size: 1.22em;
+	font-weight: 100;
 	padding: 0 0 0 60px;
 	vertical-align: top;
 	/*color: rgba(0,0,0,0.2);*/
-  color:#fff;
+  color:#bcbcbc;
 	cursor: pointer;
 	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
@@ -49,7 +50,7 @@
 .ac-custom input[type="checkbox"],
 .ac-custom input[type="radio"],
 .ac-custom label::before {
-	width: 30px;
+	width: 30px ;
 	height: 30px;
 	top: 50%;
 	left: 0;
@@ -69,7 +70,7 @@
 
 .ac-custom label::before {
 	content: '';
-	border: 4px solid #fff;
+	border: 4px solid #bcbcbc;
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
 }
@@ -80,7 +81,7 @@
 
 .ac-custom input[type="checkbox"]:checked + label,
 .ac-custom input[type="radio"]:checked + label {
-	color: #fff;
+	color: #bcbcbc;
 }
 
 .ac-custom input[type="checkbox"]:checked + label::before,
@@ -101,7 +102,7 @@
 }
 
 .ac-custom svg path {
-	stroke: #fdfcd3;
+	stroke: #8b0000;
 	stroke-width: 13px;
 	stroke-linecap: round;
 	stroke-linejoin: round;
