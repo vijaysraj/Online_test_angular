@@ -17,14 +17,16 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'LocalStorageModule',
+    'config'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/registration.html',
-        controller: 'RegistrationCtrl',
-        controllerAs: 'main'
+        controller: 'registrationCtrl',
+        controllerAs: 'registration'
       })
       .when('/question', {
         templateUrl: 'views/question.html',

@@ -4,17 +4,17 @@ html, body {
 	padding: 0;
 	height: 100%; /* For the demo since the page is mostly empty */
 
-	color: #fff;
+	color: #bcbcbc;
 	font-family: 'Lato', Arial, sans-serif;
 }
 
 body {
 	/*background: rgba(34, 201, 118, 0.9);*/
-	background:#3a2c41;
+	background:#fff;
 }
 
 a {
-	color: #fff;
+	color: #bcbcbc;
 	text-decoration: none;
 }
 
@@ -26,7 +26,7 @@ a:hover, a:focus {
 	margin: 0 auto;
 	padding: 1em 2em;
 	text-align: center;
-	background: rgba(0,0,0,.05);
+	/*background: rgba(0,0,0,.05);*/
 }
 
 .container > header h1 {
@@ -39,8 +39,7 @@ a:hover, a:focus {
 .container > header span {
 	display: block;
 	font-size: 50%;
-	/*color: rgba(0,0,0,.2);*/
-	color:#fff;
+	color:#bcbcbc;
 	font-weight: 100;
 	padding: 0 0 0.6em 0.1em;
 }
@@ -56,7 +55,7 @@ section:nth-child(even) {
 section.related {
 	text-align: center;
 	font-size: 1.6em;
-	color:#fff;
+	color:#bcbcbc;
 }
 
 .related p {
@@ -82,7 +81,7 @@ transform: translate3d( -10px, 0, 0 ); /* X, Y, Z */
 	position: fixed;
 	top: 10px;
 	left: 30px;
-	color:#fff !important;
+	color:#8b0000 !important;
 }
 #toggle-menu:hover {
 	color:#fff;
@@ -106,6 +105,7 @@ transform: translate3d( -10px, 0, 0 ); /* X, Y, Z */
 	font-size: 0.85em;
 	background: #fff;
 	z-index: 10; /* Make sure the z-index is lower than the #page */
+	border-right:1px dotted #bcbcbc;
 }
 
 #menu a {
