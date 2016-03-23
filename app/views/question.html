@@ -24,6 +24,10 @@
    <a href="#" id="toggle-menu"><i class="fa fa-bars fa-2x"></i></a>
 </div>
 		<div class="container" ng-controller="questionCtrl as question">
+
+			<div id="round-timer">
+				<timer class="counttimer" interval="60000" countdown="60">{{countdown}} min{{minutesS}}</timer>
+			</div>
       
 			<header>
 				<h1>Qwinix Aptitude Test<span>First part of recruitment process</span></h1>
