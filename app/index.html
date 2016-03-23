@@ -9,14 +9,16 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="styles/question/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="styles/question/demo.css" />
-    <link rel="stylesheet" type="text/css" href="styles/question/component.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <link rel="stylesheet" type="text/css" href="styles/question/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="styles/question/demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles/question/component.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.css">
+
     <!-- endbuild -->
 </head>
 <body ng-view="" ng-app="onlineTestAngularApp">
@@ -37,8 +39,15 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/momentjs/moment.js"></script>
+    <script src="bower_components/humanize-duration/humanize-duration.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
+
+    <script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+    <script src="bower_components/semantic/dist/semantic.js"></script>
+
+    
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>

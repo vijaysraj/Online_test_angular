@@ -92,6 +92,7 @@
 /* General SVG and path styles */
 
 .ac-custom svg {
+
 	position: absolute;
 	width: 20px;
 	height: 20px;
@@ -102,7 +103,7 @@
 }
 
 .ac-custom svg path {
-	stroke: #8b0000;
+	stroke: #8b0000 !important;
 	stroke-width: 13px;
 	stroke-linecap: round;
 	stroke-linejoin: round;
@@ -187,4 +188,21 @@
 	section {
 		font-size: 80%;
 	}
+}
+
+.progress {
+	background-color: #8b0000 !important;
+	color: #ffffff !important;
+}
+
+.option-field{
+	padding: 0.5em;
+}
+
+.option-field li {
+	font-size: 15px;
+}
+
+.radio ul li {
+	list-style: none;
 }

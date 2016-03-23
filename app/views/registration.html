@@ -59,7 +59,7 @@
             </li>
             <li>
               <label class="fs-field-label fs-anim-upper" for="q7">Contact Number ?</label>
-              <input class="fs-mark fs-anim-lower" id="q7" name="q7" type="number" placeholder="xxxxxxxxxx" ng-model="registration.registrationForm.Phone_number" step="100" min="100"/>
+              <input class="fs-mark fs-anim-lower" id="q7" name="q7" type="text" placeholder="xxxxxxxxxx" ng-model="registration.registrationForm.phone_number" step="100" min="100"/>
             </li>
             <li>
               <label class="fs-field-label fs-anim-upper" for="q8">Password</label>
@@ -72,7 +72,6 @@
           </ol><!-- /fs-fields -->
           <button class="fs-submit" type="submit" ng-click="registration.submit()">Submit for Registration</button>
         </form><!-- /fs-form -->
-        {{registration.dataObj.Error}}
       </div><!-- /fs-form-wrap -->
 
     </div><!-- /container -->

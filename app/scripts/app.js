@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'LocalStorageModule',
-    'config'
+    'config',
+    'timer'
   ])
   .config(function ($routeProvider) {
     $routeProvider
