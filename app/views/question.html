@@ -24,34 +24,29 @@
    <a href="#" id="toggle-menu"><i class="fa fa-bars fa-2x"></i></a>
 </div>
 		<div class="container" ng-controller="questionCtrl as question">
-      <input id="round" type="submit" value="Submit" />
+      
 			<header>
 				<h1>Qwinix Aptitude Test<span>First part of recruitment process</span></h1>
 			</header>
-      <!-- <form class="ac-custom ac-checkbox ac-cross" autocomplete="off">
-			<section ng-repeat="question in question.questionObj">
-				
-					<h2>How do you collaboratively administrate empowered markets via plug-and-play networks?</h2>
-					<ul>
-						<li><input id="cb1" name="cb1" type="checkbox"><label for="cb1">Efficiently unleash information</label></li>
-					</ul>
-				
-			</section>
-      </form> -->
       <section >
-				<form class="ac-custom ac-radio ac-fill" autocomplete="off" ng-repeat="question in question.questionObj">
-					<h2>{{question.Id}}.&nbsp;{{question.Title}}</h2>
-					<ul>
-						<li><input id="r1" name="r1" type="radio" value="{{question.Option_1}}" ng-model="question.option_1"><label for="r1">{{question.Option_1}}</label></li>
-						<li><input id="r2" name="r1" type="radio" value="{{question.Option_2}}"><label for="r2">{{question.Option_2}}</label></li>
-						<li><input id="r3" name="r1" type="radio" value="{{question.option_3}}"><label for="r3">{{question.Option_3}}</label></li>
-						<li><input id="r4" name="r1" type="radio" value="{{question.option_4}}"><label for="r4">{{question.Option_4}}</label></li>
-					</ul>
+				<form class="radio" autocomplete="off"  name="questionForm" ng-submit="question.submitAnswers()">
+					<div id="{{$index + 1}}" ng-repeat="question in question.questionObj track by $index">
+						<h3>{{$index + 1}}.&nbsp; &nbsp;{{question.Title}}</h3>
+						<ul>
+							<li class="option-field" ng-repeat="option in question.Options track by $index">
+								<span>
+								<input type="radio" name="option_question_{{question.Id}}" ng-model="question.selectedOption" ng-value="option"/>
+								{{option}}
+								</span>						
+							</li> 
+						</ul>
+					</div>
+					<input id="round" type="submit" value="Submit" />
 				</form>
 			</section>
 
 
-		</div><!-- /container -->
+		</div>
 
 		<script src="../scripts/question/svgcheckbx.js"></script>
     <script type="text/javascript">
