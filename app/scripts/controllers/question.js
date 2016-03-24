@@ -7,6 +7,7 @@ angular.module('onlineTestAngularApp')
   vm.id = localStorageService.get('id');
   vm.auth_token = localStorageService.get('rec-auth-token');
   vm.questionObj = localStorageService.get('question');
+  vm.sectionId = localStorageService.get('sectionId');
 
   if (vm.auth_token === null) {
     if ($location.$$path === '/question') {
@@ -30,41 +31,49 @@ angular.module('onlineTestAngularApp')
 //             }
 //     }
 // }
-  console.log(vm.questionObj)
+
 if (vm.questionObj === null || vm.questionObj === undefined) {
-Questionservice.getData(2).then(function(response) {
+Questionservice.getData(1).then(function(response) {
    vm.questionObj = response.data.QuestionList;
   localStorageService.set('question', vm.questionObj)
+  localStorageService.set('sectionId', response.data.SectionId)
 });
 }
 
-console.log(vm.questionObj)
 
 
 
 vm.submitAnswers = function() {
   var selectedOptions = [];
   angular.forEach(vm.questionObj, function(question) {
-    selectedOptions.push({ 
+    selectedOptions.push({
       "QuestionId": question.Id,
       "Answer": question.selectedOption
     })
   });
 
   var params = {
-    "SectionId": 1,
+    "SectionId": vm.sectionId,
     "UserId": vm.id,
     "Questions": selectedOptions
   }
   Questionservice.postData(params).then(function(response){
-    console.log(response)
+    if (vm.sectionId === 3){
     localStorageService.remove('id')
     localStorageService.remove('rec-auth-token');
     localStorageService.remove('question');
+    localStorageService.remove('sectionId');
     $location.path('/')
-  })
-    // 1 - Submit the answers
-    // 2 - Get new set of questions
+    }
+    else {
+      Questionservice.getData(vm.sectionId + 1).then(function(response){
+        console.log(vm.sectionId + 1);
+        vm.questionObj = response.data.QuestionList;
+        localStorageService.set('question', vm.questionObj)
+        localStorageService.set('sectionId', response.data.SectionId)
+      });
+    }
+  });
   }
 });
 
