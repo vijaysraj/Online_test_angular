@@ -8,6 +8,29 @@ angular.module('onlineTestAngularApp')
   vm.auth_token = localStorageService.get('rec-auth-token');
   vm.questionObj = localStorageService.get('question');
 
+
+  if (localStorageService.get('timerover')) {
+    $location.path('feedback');
+  } else {
+    if (!localStorageService.get('timer')) {
+      localStorageService.set('timer', 62);
+    }
+
+    vm.timer = localStorageService.get('timer');
+
+    vm.updateTimer = function (){
+      localStorageService.set('timer', vm.timer-1);
+      vm.timer = localStorageService.get('timer');
+      if (vm.timer !=0) {
+        setTimeout(vm.updateTimer, 60000);
+      } else {
+        localStorageService.remove('timer');
+        localStorageService.set('timerover',true);
+      }
+    }
+    vm.updateTimer();
+  }
+
   if (vm.auth_token === null) {
     if ($location.$$path === '/question') {
       $location.path('/');

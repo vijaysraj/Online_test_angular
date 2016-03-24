@@ -31,6 +31,10 @@ module.exports = function(config) {
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
+      'bower_components/momentjs/moment.js',
+      'bower_components/humanize-duration/humanize-duration.js',
+      'bower_components/angular-timer/dist/angular-timer.js',
+      'bower_components/semantic/dist/semantic.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/livereload-js/dist/livereload.js',
       // endbower
