@@ -90,10 +90,10 @@ vm.submitAnswers = function() {
     }
     else {
       Questionservice.getData(vm.sectionId + 1).then(function(response){
-        console.log(vm.sectionId + 1);
         vm.questionObj = response.data.QuestionList;
         localStorageService.set('question', vm.questionObj)
         localStorageService.set('sectionId', response.data.SectionId)
+        console.log(vm.sectionId + 1);
       });
     }
   });
