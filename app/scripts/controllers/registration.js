@@ -4,8 +4,7 @@ angular.module('onlineTestAngularApp')
 .controller('registrationCtrl', function ($rootScope, Registrationservice, localStorageService, $location) {
   var vm = this;
   vm.errorMsg = false;
-
-  vm.auth_token = localStorageService.get('auth-token');
+  vm.auth_token = localStorageService.get('rec-auth-token');
 
   if (vm.auth_token != null) {
     if ($location.$$path === '/') {
@@ -29,7 +28,7 @@ angular.module('onlineTestAngularApp')
     Registrationservice.postData(params).then(function(response) {
       vm.dataObj = response.data;
       if (vm.dataObj.Success === "true") {
-        localStorageService.set('auth-token', vm.dataObj.Session.Auth_token);
+        localStorageService.set('rec-auth-token', vm.dataObj.Session.Auth_token);
         localStorageService.set('id', vm.dataObj.User.Id);
 
         $location.path('/question');

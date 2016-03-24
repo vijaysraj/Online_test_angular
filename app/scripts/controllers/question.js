@@ -5,8 +5,8 @@ angular.module('onlineTestAngularApp')
   var vm = this;
 
   vm.id = localStorageService.get('id');
-
-  vm.auth_token = localStorageService.get('auth-token');
+  vm.auth_token = localStorageService.get('rec-auth-token');
+  vm.questionObj = localStorageService.get('question');
 
   if (vm.auth_token === null) {
     if ($location.$$path === '/question') {
@@ -30,31 +30,39 @@ angular.module('onlineTestAngularApp')
 //             }
 //     }
 // }
+  console.log(vm.questionObj)
+if (vm.questionObj === null || vm.questionObj === undefined) {
+Questionservice.getData(2).then(function(response) {
+   vm.questionObj = response.data.QuestionList;
+  localStorageService.set('question', vm.questionObj)
+});
+}
 
-  Questionservice.getData(2).then(function(response) {
-    vm.questionObj = response.data.QuestionList
-    // vm.questionObj = fakeResponse
+console.log(vm.questionObj)
+
+
+
+vm.submitAnswers = function() {
+  var selectedOptions = [];
+  angular.forEach(vm.questionObj, function(question) {
+    selectedOptions.push({ 
+      "QuestionId": question.Id,
+      "Answer": question.selectedOption
+    })
   });
 
-  vm.submitAnswers = function() {
-    var selectedOptions = [];
-    angular.forEach(vm.questionObj, function(question) {
-      selectedOptions.push({ 
-        "QuestionId": question.Id,
-        "Answer": question.selectedOption
-      })
-    });
-
-    var params = {
-      "SectionId": 1,
-      "UserId": vm.id,
-      "Questions": selectedOptions
-    }
-    Questionservice.postData(params).then(function(response){
-      localStorageService.remove('id')
-      localStorageService.remove('auth-token');
-      $location.path('/')
-    })
+  var params = {
+    "SectionId": 1,
+    "UserId": vm.id,
+    "Questions": selectedOptions
+  }
+  Questionservice.postData(params).then(function(response){
+    console.log(response)
+    localStorageService.remove('id')
+    localStorageService.remove('rec-auth-token');
+    localStorageService.remove('question');
+    $location.path('/')
+  })
     // 1 - Submit the answers
     // 2 - Get new set of questions
   }
