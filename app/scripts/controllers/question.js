@@ -85,6 +85,8 @@ if (vm.questionObj === null || vm.questionObj === undefined) {
         localStorageService.remove('rec-auth-token');
         localStorageService.remove('question');
         localStorageService.remove('sectionId');
+        localStorageService.remove('timer');
+        localStorageService.remove('timerover');
         $location.path('/feedback')
       } else {
         vm.sectionId = vm.sectionId + 1;
