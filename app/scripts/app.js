@@ -34,6 +34,11 @@ angular
         controller: 'questionCtrl',
         controllerAs: 'question'
       })
+      .when('/feedback', {
+        templateUrl: 'views/feedback.html',
+        controller: 'feedbackCtrl',
+        controllerAs: 'feedback'
+      })
       .otherwise({
         redirectTo: '/'
       });

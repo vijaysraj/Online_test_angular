@@ -26,11 +26,10 @@
 		<div class="container" ng-controller="questionCtrl as question">
 
 			<div id="round-timer">
-				<timer class="counttimer" interval="60000" countdown="60" ng-init="question.count={{countdown}} min{{minutesS}}">{{countdown}} min{{minutesS}}</timer>
+				<timer class="counttimer" interval="60000" countdown="question.timer">{{countdown}} min{{minutesS}}</timer>
 			</div>
       
 			<header>
-			{{question.count}}
 				<h1>Qwinix Aptitude Test<span>First part of recruitment process</span></h1>
 			</header>
       <section>
