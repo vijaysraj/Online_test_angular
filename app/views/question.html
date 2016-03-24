@@ -1,24 +1,24 @@
 <ul id="menu">
-	<li><a title="Home" href="/">Question 1</a></li>
-	<li><a title="About Me" href="/about">Question 2</a></li>
-	<li><a title="Contact Me" href="/contact">Question 3</a></li>
-	<li><a title="Contact Me" href="/contact">Question 4</a></li>
-	<li><a title="Contact Me" href="/contact">Question 5</a></li>
-	<li><a title="Contact Me" href="/contact">Question 6</a></li>
-	<li><a title="Contact Me" href="/contact">Question 7</a></li>
-	<li><a title="Contact Me" href="/contact">Question 8</a></li>
-	<li><a title="Contact Me" href="/contact">Question 9</a></li>
-	<li><a title="Contact Me" href="/contact">Question 10</a></li>
-	<li><a title="Contact Me" href="/contact">Question 11</a></li>
-	<li><a title="Contact Me" href="/contact">Question 12</a></li>
-	<li><a title="Contact Me" href="/contact">Question 13</a></li>
-	<li><a title="Contact Me" href="/contact">Question 14</a></li>
-	<li><a title="Contact Me" href="/contact">Question 15</a></li>
-	<li><a title="Contact Me" href="/contact">Question 16</a></li>
-	<li><a title="Contact Me" href="/contact">Question 17</a></li>
-	<li><a title="Contact Me" href="/contact">Question 18</a></li>
-	<li><a title="Contact Me" href="/contact">Question 19</a></li>
-	<li><a title="Contact Me" href="/contact">Question 20</a></li>
+	<li><a href="#1">Question 1</a></li>
+	<li><a href="#2">Question 2</a></li>
+	<li><a href="#3">Question 3</a></li>
+	<li><a href="#4">Question 4</a></li>
+	<li><a href="#5">Question 5</a></li>
+	<li><a href="#6">Question 6</a></li>
+	<li><a href="#7">Question 7</a></li>
+	<li><a href="#8">Question 8</a></li>
+	<li><a href="#9">Question 9</a></li>
+	<li><a href="#10">Question 10</a></li>
+	<li><a href="#11">Question 11</a></li>
+	<li><a href="#12">Question 12</a></li>
+	<li><a href="#13">Question 13</a></li>
+	<li><a href="#14">Question 14</a></li>
+	<li><a href="#15">Question 15</a></li>
+	<li><a href="#16">Question 16</a></li>
+	<li><a href="#17">Question 17</a></li>
+	<li><a href="#18">Question 18</a></li>
+	<li><a href="#19">Question 19</a></li>
+	<li><a href="#20">Question 20</a></li>
 </ul>
 <div id="page">
    <a href="#" id="toggle-menu"><i class="fa fa-bars fa-2x"></i></a>
@@ -26,13 +26,14 @@
 		<div class="container" ng-controller="questionCtrl as question">
 
 			<div id="round-timer">
-				<timer class="counttimer" interval="60000" countdown="60">{{countdown}} min{{minutesS}}</timer>
+				<timer class="counttimer" interval="60000" countdown="60" ng-init="question.count={{countdown}} min{{minutesS}}">{{countdown}} min{{minutesS}}</timer>
 			</div>
       
 			<header>
+			{{question.count}}
 				<h1>Qwinix Aptitude Test<span>First part of recruitment process</span></h1>
 			</header>
-      <section >
+      <section>
 				<form class="radio" autocomplete="off"  name="questionForm" ng-submit="question.submitAnswers()">
 					<div id="{{$index + 1}}" ng-repeat="question in question.questionObj track by $index">
 						<h3>{{$index + 1}}.&nbsp; &nbsp;{{question.Title}}</h3>
