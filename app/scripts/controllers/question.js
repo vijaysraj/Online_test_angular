@@ -32,11 +32,11 @@ angular.module('onlineTestAngularApp')
     vm.updateTimer();
   }
 
-  if (vm.auth_token === null) {
-    if ($location.$$path === '/question') {
-      $location.path('/');
-    }
-  }
+  // if (vm.auth_token === null) {
+  //   if ($location.$$path === '/question') {
+  //     $location.path('/');
+  //   }
+  // }
 
   // for restricting page refresh
 
@@ -98,6 +98,28 @@ if (vm.questionObj === null || vm.questionObj === undefined) {
       }
     });
 
+  var params = {
+    "SectionId": vm.sectionId,
+    "UserId": vm.id,
+    "Questions": selectedOptions
+  }
+  Questionservice.postData(params).then(function(response){
+    if (vm.sectionId === 3){
+    localStorageService.remove('id')
+    localStorageService.remove('rec-auth-token');
+    localStorageService.remove('question');
+    localStorageService.remove('sectionId');
+    $location.path('/')
+    }
+    else {
+      Questionservice.getData(vm.sectionId + 1).then(function(response){
+        vm.questionObj = response.data.QuestionList;
+        localStorageService.set('question', vm.questionObj)
+        localStorageService.set('sectionId', response.data.SectionId)
+        console.log(vm.sectionId);
+      });
+    }
+  });
   }
 
 });

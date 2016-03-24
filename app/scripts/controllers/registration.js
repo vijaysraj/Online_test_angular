@@ -6,11 +6,11 @@ angular.module('onlineTestAngularApp')
   vm.errorMsg = false;
   vm.auth_token = localStorageService.get('rec-auth-token');
 
-  if (vm.auth_token != null) {
-    if ($location.$$path === '/') {
-      $location.path('/question');
-    }
-  }
+  // if (vm.auth_token != null) {
+  //   if ($location.$$path === '/') {
+  //     $location.path('/question');
+  //   }
+  // }
 
   vm.submit = function () {
 
