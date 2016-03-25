@@ -2,6 +2,6 @@
 
  angular.module('config', [])
 
-.constant('ENV', {name:'development',api_path:'http://192.168.2.23:3001/'})
+.constant('ENV', {name:'development',api_path:'http://recruitment-api.qwinixtech.com:3010/'})
 
 ;

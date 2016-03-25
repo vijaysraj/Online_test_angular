@@ -35,5 +35,13 @@ $(document).ready(function(){
 $('.close').on('click', function() {
   $('.container').stop().removeClass('active');
 });
+
+$(".toggle").click(function(){
+        $("#card1").hide();
+        $("#card0").hide();
+    });
+    $(".close").click(function(){
+        $("#card1").show();
+    });
 });
 

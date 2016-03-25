@@ -21,7 +21,7 @@ angular.module('onlineTestAngularApp')
         return response.data;
       }
       return $http.post(ENV.api_path+"section/evaluate", params).then(success, failure);
-    },
+    }
   };
   return obj;
 });

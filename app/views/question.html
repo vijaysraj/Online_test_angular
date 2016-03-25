@@ -1,6 +1,6 @@
 <ul id="menu">
-	<li><a href="#1">Question 1</a></li>
-	<li><a href="#2">Question 2</a></li>
+	<li><a href="#!#1">Question 1</a></li>
+	<li><a href="#!#2">Question 2</a></li>
 	<li><a href="#3">Question 3</a></li>
 	<li><a href="#4">Question 4</a></li>
 	<li><a href="#5">Question 5</a></li>
@@ -21,68 +21,71 @@
 	<li><a href="#20">Question 20</a></li>
 </ul>
 <div id="page">
-   <a href="#" id="toggle-menu"><i class="fa fa-bars fa-2x"></i></a>
+	<a href="#" id="toggle-menu"><i class="fa fa-bars fa-2x"></i></a>
 </div>
-		<div class="container" ng-controller="questionCtrl as question">
-
-			<div id="round-timer">
-				<timer class="counttimer" interval="60000" countdown="question.timer">{{countdown}} min{{minutesS}}</timer>
-			</div>
-      
-			<header>
-				<h1>Qwinix Aptitude Test<span>First part of recruitment process</span></h1>
-			</header>
-      <section>
-				<form class="radio" autocomplete="off"  name="questionForm" ng-submit="question.submitAnswers()">
-					<div id="{{$index + 1}}" ng-repeat="question in question.questionObj track by $index">
-						<h3>{{$index + 1}}.&nbsp; &nbsp;{{question.Title}}</h3>
-						<ul>
-							<li class="option-field" ng-repeat="option in question.Options track by $index">
-								<span>
-								<input type="radio" name="option_question_{{question.Id}}" ng-model="question.selectedOption" ng-value="option"/>
-								{{option}}
-								</span>						
-							</li> 
-						</ul>
-					</div>
-					<input id="round" type="submit" value="Submit" />
-				</form>
-			</section>
+<div class="container" ng-controller="questionCtrl as question">
 
 
+		<div id="round-timer">
+			<timer class="counttimer" interval="60000" countdown="question.timer">{{countdown}} min{{minutesS}}</timer>
 		</div>
 
-		<script src="../scripts/question/svgcheckbx.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function(){
-      ( function( $ ) {
+		<header>
+			<h1>Qwinix Aptitude Test<span>First part of recruitment process</span></h1>
+		</header>
+		</div>
+		<div class="container1">
+		<section>
+			<form class="radio" autocomplete="off"  name="questionForm" ng-submit="question.submitAnswers()">
+				<div id="{{$index + 1}}" ng-repeat="question in question.questionObj track by $index">
+					<h3>{{$index + 1}}.&nbsp; &nbsp;{{question.Title}}</h3>
+					<ul>
+						<li class="option-field" ng-repeat="option in question.Options track by $index">
+							<span>
+								<input type="radio" name="option_question_{{question.Id}}" ng-model="question.selectedOption" ng-value="option"/>
+								{{option}}
+							</span>						
+						</li> 
+					</ul>
+				</div>
+				<input id="round" type="submit" value="Submit" />
+			</form>
+		</section>
+
+	
+</div>
+
+<script src="../scripts/question/svgcheckbx.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		( function( $ ) {
  /***
   * Run this code when the #toggle-menu link has been tapped
   * or clicked
   */
- $( '#toggle-menu' ).on( 'touchstart click', function(e) {
-  e.preventDefault();
+  $( '#toggle-menu' ).on( 'touchstart click', function(e) {
+  	e.preventDefault();
 
-  var $body = $( 'body' ),
-      $page = $( '#page' ),
-      $menu = $( '#menu' ),
+  	var $body = $( 'body' ),
+  	$page = $( '#page' ),
+  	$menu = $( '#menu' ),
 
-      /* Cross browser support for CSS "transition end" event */
-      transitionEnd = 'transitionend webkitTransitionEnd otransitionend MSTransitionEnd';
+  	/* Cross browser support for CSS "transition end" event */
+  	transitionEnd = 'transitionend webkitTransitionEnd otransitionend MSTransitionEnd';
 
-  /* When the toggle menu link is clicked, animation starts */
-  $body.addClass( 'animating' );
+  	/* When the toggle menu link is clicked, animation starts */
+  	$body.addClass( 'animating' );
 
   /***
    * Determine the direction of the animation and
    * add the correct direction class depending
    * on whether the menu was already visible.
    */
-  if ( $body.hasClass( 'menu-visible' ) ) {
-   $body.addClass( 'right' );
-  } else {
-   $body.addClass( 'left' );
-  }
+   if ( $body.hasClass( 'menu-visible' ) ) {
+   	$body.addClass( 'right' );
+   } else {
+   	$body.addClass( 'left' );
+   }
 
   /***
    * When the animation (technically a CSS transition)
@@ -90,14 +93,14 @@
    * either add or remove the "menu-visible" class
    * depending whether it was visible or not previously.
    */
-  $page.on( transitionEnd, function() {
-   $body
-    .removeClass( 'animating left right' )
-    .toggleClass( 'menu-visible' );
+   $page.on( transitionEnd, function() {
+   	$body
+   	.removeClass( 'animating left right' )
+   	.toggleClass( 'menu-visible' );
 
-   $page.off( transitionEnd );
-  } );
+   	$page.off( transitionEnd );
+   } );
  } );
 } )( jQuery );
-    });
-    </script>
+});
+</script>

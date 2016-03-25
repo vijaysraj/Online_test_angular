@@ -45,21 +45,21 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'development',
-            api_path: 'http://192.168.2.23:3001/',
+            api_path: 'http://192.168.2.36:3010/',
           }
         }
       },
-      // st: {
-      //   options: {
-      //     dest: '<%= yeoman.dist %>/scripts/config.js',
-      //   },
-      //   constants: {
-      //     ENV: {
-      //       name: 'st',
-      //       api_path: 'http://st.api.meetings.qwinixtech.com/',
-      //     }
-      //   }
-      // },
+      it: {
+        options: {
+          dest: '<%= yeoman.dist %>/scripts/config.js',
+        },
+        constants: {
+          ENV: {
+            name: 'it',
+            api_path: 'http://recruitment-api.qwinixtech.com:3000/',
+          }
+        }
+      },
       // production: {
       //   options: {
       //     dest: '<%= yeoman.dist %>/scripts/config.js',
