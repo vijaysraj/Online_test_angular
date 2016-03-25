@@ -196,7 +196,7 @@ body {
   position: relative;
   max-width: 460px;
   width: 100%;
-  margin: 0 auto 100px;
+  margin: 0 auto 50px;
 }
 .container.active .card:first-child {
   background: #f2f2f2;
@@ -268,7 +268,7 @@ body {
   border-radius: 5px;
   padding: 60px 0 40px 0;
   box-sizing: border-box;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.50), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: .3s ease;
   transition: .3s ease;
   /* Title */
@@ -463,7 +463,7 @@ body {
   cursor: pointer;
 }
 .card.alt .toggle:before {
-  content: '\f040';
+  content: '\f090';
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -545,3 +545,15 @@ body {
   }
 }
 
+.container1 {
+    padding-top: 1px;
+    padding-right: 15px;
+    padding-left: 100px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 1200px)
+.container1 {
+    width: 1170px;
+}

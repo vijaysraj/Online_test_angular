@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('onlineTestAngularApp')
-.controller('questionCtrl', function ($rootScope, localStorageService, $location, Questionservice, $scope, $window) {
+.controller('questionCtrl', function ($rootScope, localStorageService, $location, Questionservice, $scope, $window, $anchorScroll) {
   var vm = this;
-
+  localStorageService.set('sectionId', 1);
   vm.id = localStorageService.get('id');
   vm.auth_token = localStorageService.get('rec-auth-token');
   vm.questionObj = localStorageService.get('question');
@@ -32,11 +32,21 @@ angular.module('onlineTestAngularApp')
     vm.updateTimer();
   }
 
-  // if (vm.auth_token === null) {
-  //   if ($location.$$path === '/question') {
-  //     $location.path('/');
-  //   }
-  // }
+  if (vm.auth_token === null) {
+    if ($location.$$path === '/question') {
+      $location.path('/');
+    }
+  }
+
+
+  $scope.goto11 = function() {
+      // set the location.hash to the id of
+      // the element you wish to scroll to.
+      $location.hash('11');
+
+      // call $anchorScroll()
+      $anchorScroll();
+    };
 
   // for restricting page refresh
 
@@ -89,6 +99,7 @@ if (vm.questionObj === null || vm.questionObj === undefined) {
         localStorageService.remove('timerover');
         $location.path('/feedback')
       } else {
+        console.log(vm.sectionId)
         vm.sectionId = vm.sectionId + 1;
         Questionservice.getData(vm.sectionId).then(function(response){
           vm.questionObj = response.data.QuestionList;
@@ -97,29 +108,6 @@ if (vm.questionObj === null || vm.questionObj === undefined) {
         });
       }
     });
-
-  var params = {
-    "SectionId": vm.sectionId,
-    "UserId": vm.id,
-    "Questions": selectedOptions
-  }
-  Questionservice.postData(params).then(function(response){
-    if (vm.sectionId === 3){
-    localStorageService.remove('id')
-    localStorageService.remove('rec-auth-token');
-    localStorageService.remove('question');
-    localStorageService.remove('sectionId');
-    $location.path('/')
-    }
-    else {
-      Questionservice.getData(vm.sectionId + 1).then(function(response){
-        vm.questionObj = response.data.QuestionList;
-        localStorageService.set('question', vm.questionObj)
-        localStorageService.set('sectionId', response.data.SectionId)
-        console.log(vm.sectionId);
-      });
-    }
-  });
   }
 
 });
